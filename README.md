@@ -12,6 +12,10 @@
 
 `docker rm $(docker ps -a -q)`
 
+## Exec bash on a container
+
+`docker exec -it {container ID} bash`
+
 ## Links
 
 [https://hub.docker.com/_/postgres/](https://hub.docker.com/_/postgres/)
