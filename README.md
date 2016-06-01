@@ -6,11 +6,13 @@
 
 `docker run entrypoint-build "YAY it works"`
 
-## Stop / remove all Docker containers
+## Stop / remove all Docker containers / images
 
 `docker stop $(docker ps -a -q)`
 
 `docker rm $(docker ps -a -q)`
+
+`docker rmi $(docker images -a)`
 
 ## Exec bash on a container
 
