@@ -12,7 +12,7 @@
 
 `docker rm $(docker ps -a -q)`
 
-`docker rmi $(docker images -a)`
+`docker rmi $(docker images -aq)`
 
 ## Exec bash on a container
 
