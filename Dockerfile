@@ -7,4 +7,4 @@ RUN touch file100 \
           file300
 ADD mycontext.txt /
 
-CMD ["echo", "Hola world"]
+ENTRYPOINT ["echo"]
