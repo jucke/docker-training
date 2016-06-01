@@ -14,6 +14,8 @@
 
 `docker rmi $(docker images -aq)`
 
+_-aq_ stands for "all" and "quiet mode" (just contaner IDs)
+
 ## Exec bash on a container
 
 `docker exec -it {container ID} bash`
