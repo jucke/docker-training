@@ -26,6 +26,12 @@ _-aq_ stands for "all" and "quiet mode" (just contaner IDs)
 
 `docker inspect {container ID}`
 
+`docker inspect --format {{.NetworkSettings.IPAdress}}` {containerID}
+
+## What container is using which volume?
+
+`docker inspect --format "{{.Id}} {{range .Mounts}} {{.Name}} {{end}}" $(docker ps -aq)`
+
 ## Volumes
 
 List all volumes `docker volume ls`
