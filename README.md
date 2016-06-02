@@ -28,10 +28,6 @@ _-aq_ stands for "all" and "quiet mode" (just contaner IDs)
 
 `docker inspect --format {{.NetworkSettings.IPAdress}}` {containerID}
 
-## What container is using which volume?
-
-`docker inspect --format "{{.Id}} {{range .Mounts}} {{.Name}} {{end}}" $(docker ps -aq)`
-
 ## Volumes
 
 List all volumes `docker volume ls`
@@ -40,11 +36,19 @@ List dangling volumes `docker volume ls -f dangling=true`
 
 Remove dangling volumes `docker volume rm $(docker volume ls -qf dangling=true)`
 
+### What container is using which volume?
+
+`docker inspect --format "{{.Id}} {{range .Mounts}} {{.Name}} {{end}}" $(docker ps -aq)`
+
 ### Map tomcat_logs volume to tomcat logs
 
 `docker volume create --name tomcat_logs`
 
 `docker run -it -v tomcat_logs:/usr/local/tomcat/logs/ -P -d tomcat`
+
+OR
+
+`docker run -d -v ~/GitHub/Experiments/docker-training/tomcat_logs/:/usr/local/tomcat/logs/ tomcat`
 
 ## More
 
