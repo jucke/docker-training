@@ -6,6 +6,12 @@
 
 `docker run entrypoint-build "YAY it works"`
 
+## SSH into machine; bash into container
+
+`docker exec -it {container id} bash`
+
+`docker-machine ssh`
+
 ## Stop / remove all Docker containers / images
 
 `docker stop $(docker ps -aq)`
@@ -16,9 +22,23 @@
 
 _-aq_ stands for "all" and "quiet mode" (just contaner IDs)
 
-## Exec bash on a container
+## Inspect a container
 
-`docker exec -it {container ID} bash`
+`docker inspect {container ID}`
+
+## Remove dangling volumes
+
+List all volumes `docker volume ls`
+
+List dangling volumes `docker volume ls -f dangling=true`
+
+Remove dangling volumes `docker volume rm $(docker volume ls -qf dangling=true)`
+
+## Map tomcat_logs volume to tomcat logs
+
+`docker volume create --name tomcat_logs`
+
+`docker run -it -v tomcat_logs:/usr/local/tomcat/logs/ -P -d tomcat`
 
 ## Links
 
