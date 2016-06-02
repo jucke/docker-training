@@ -26,7 +26,7 @@ _-aq_ stands for "all" and "quiet mode" (just contaner IDs)
 
 `docker inspect {container ID}`
 
-## Remove dangling volumes
+## Volumes
 
 List all volumes `docker volume ls`
 
@@ -34,11 +34,15 @@ List dangling volumes `docker volume ls -f dangling=true`
 
 Remove dangling volumes `docker volume rm $(docker volume ls -qf dangling=true)`
 
-## Map tomcat_logs volume to tomcat logs
+### Map tomcat_logs volume to tomcat logs
 
 `docker volume create --name tomcat_logs`
 
 `docker run -it -v tomcat_logs:/usr/local/tomcat/logs/ -P -d tomcat`
+
+## More
+
+`docker run -it --link engineX:web busybox sh`
 
 ## Links
 
