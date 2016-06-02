@@ -40,6 +40,8 @@ Remove dangling volumes `docker volume rm $(docker volume ls -qf dangling=true)`
 
 `docker inspect --format "{{.Id}} {{range .Mounts}} {{.Name}} {{end}}" $(docker ps -aq)`
 
+`docker inspect --format {{.NetworkSettings.IPAddress}} {container ID}`
+
 ### Map tomcat_logs volume to tomcat logs
 
 `docker volume create --name tomcat_logs`
